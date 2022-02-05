@@ -1,12 +1,24 @@
 nfancurve
 ---------
-You are probably wondering why I have chosen to write this script in ~~Bash~~ Shell Script. The reason is very simple; I wanted a script with the minimum number of dependencies possible. To get this script up-and-running you _technically_ only need the `temp.sh` file, and the `config` file.
+Written as a shell script to keep things unbloated. To get this script up-and-running you _technically_ only need the `temp.sh` file, and the `config` file, you mght need to tweak your xorg setting for configuring it to run headlessly. 
+
+Recommended to run in a tmux session.
 
 The current version of the script is **version 19.4**.
 
 This script is currently set up for Celsius. However, it can easily be modified for other temperature scales.
 
 If you need any help configuring my script or don't know how to make it start automatically check the [USAGE.md](USAGE.md) file.
+
+## setting up for headless
+using https://github.com/jjziets/test/blob/master/cool_gpu.sh as a reference
+
+kill all other x sessions
+runn nvidia-settings with xinit for each fan/gpu / 
+``
+xinit ${SET} -a [gpu:${n}]/GPUFanControlState=0 --  :0 -once
+``
+----> next step implement this into the actual temp.sh script 
 
 ## Features
 - comes with a more aggressive fan curve than the nvidia default (lower temps, louder noise)
